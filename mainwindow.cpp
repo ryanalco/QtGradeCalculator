@@ -6,9 +6,22 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    QObject::connect(ui->spinBox,SIGNAL(valueChanged(int)),
+                     this,SLOT(update_overall(int)));
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
 }
+/*
+void MainWindow::update_overall(int unused){
+    // double score = 31.4;
+    double score = static_cast<double>(unused);
+
+    ui->label_14->setText(QString::number(score));
+
+    return;
+}
+
+*/
